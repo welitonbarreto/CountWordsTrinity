@@ -23,9 +23,13 @@ public class WordFrenquenciesModel {
         update(pathToFile);
     }
 
+    public HashMap<String, Integer> getFreqs() {
+        return freqs;
+    }
+
     public void update(String pathToFile) throws IOException{
 
-        String texto = new String(Files.readAllBytes(Path.of("src/pride-and-prejudice.txt"))).toLowerCase();
+        String texto = new String(Files.readAllBytes(Path.of(pathToFile))).toLowerCase();
 
         for (String palavra : texto.split("[^a-z$]")) {
             if (palavra.length() >= 2 && !this.stopWords.contains(palavra)) {
@@ -39,10 +43,6 @@ public class WordFrenquenciesModel {
         }
 
 
-        //for(String palavra: this.freqs.keySet()){
-        //    int valor = this.freqs.get(palavra);
-        //    System.out.println(palavra + " " +  String.valueOf(valor));
-        //}
     }
 
 
