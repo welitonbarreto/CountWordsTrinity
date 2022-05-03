@@ -8,9 +8,9 @@ public class WordFrequenciesView{
     }
 
     public void render(){
-        HashMap<String,Integer> freqs = model.getFreqs();
+        HashMap<String,Integer> contadorFrequencias = model.getFreqs();
 
-        List<Map.Entry<String, Integer>> list = new ArrayList<>(freqs.entrySet());
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(contadorFrequencias.entrySet());
         list.sort(Map.Entry.comparingByValue());
         Collections.reverse(list);
 
@@ -20,8 +20,4 @@ public class WordFrequenciesView{
         }
 
     }
-
-
-
-
 }

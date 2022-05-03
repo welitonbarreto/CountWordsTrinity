@@ -9,7 +9,7 @@ import java.util.HashSet;
 
 public class WordFrenquenciesModel {
 
-    private HashMap<String,Integer> freqs = new HashMap<>();
+    private HashMap<String,Integer> contadorFrequencias;
     private HashSet<String> stopWords = new HashSet<>();
 
     public WordFrenquenciesModel(String pathToFile) throws IOException {
@@ -23,30 +23,26 @@ public class WordFrenquenciesModel {
         update(pathToFile);
     }
 
-    public HashMap<String, Integer> getFreqs() {
-        return freqs;
-    }
 
     public void update(String pathToFile) throws IOException{
 
         String texto = new String(Files.readAllBytes(Path.of(pathToFile))).toLowerCase();
+        String[] palavrasFiltradas = texto.split("[^a-z$]");
+        contadorFrequencias = new HashMap<>();
 
-        for (String palavra : texto.split("[^a-z$]")) {
+        for (String palavra : palavrasFiltradas ) {
             if (palavra.length() >= 2 && !this.stopWords.contains(palavra)) {
-                if (freqs.containsKey(palavra)) {
-                    int valor = freqs.get(palavra) + 1;
-                    freqs.put(palavra, valor);
+                if (contadorFrequencias.containsKey(palavra)) {
+                    int valor = contadorFrequencias.get(palavra) + 1;
+                    contadorFrequencias.put(palavra, valor);
                 } else {
-                    freqs.put(palavra, 1);
+                    contadorFrequencias.put(palavra, 1);
                 }
             }
         }
-
-
     }
 
-
-
-
-
+    public HashMap<String, Integer> getFreqs() {
+        return contadorFrequencias;
+    }
 }
