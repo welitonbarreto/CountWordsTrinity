@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class WordFrequenciesView{
-    private WordFrenquenciesModel model;
+    private WordFrequenciesModel model;
 
-    public WordFrequenciesView(WordFrenquenciesModel model){
+    public WordFrequenciesView(WordFrequenciesModel model){
         this.model = model;
     }
 

@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 
-public class WordFrenquenciesModel {
+public class WordFrequenciesModel {
 
     private HashMap<String,Integer> contadorFrequencias;
     private HashSet<String> stopWords = new HashSet<>();
 
-    public WordFrenquenciesModel(String pathToFile) throws IOException {
+    public WordFrequenciesModel(String pathToFile) throws IOException {
         BufferedReader buffRead = new BufferedReader(new FileReader("src/stop_words.txt"));
         String[] linha = buffRead.readLine().split(",");
 

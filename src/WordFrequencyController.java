@@ -2,10 +2,10 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class WordFrequencyController {
-    private WordFrenquenciesModel model;
+    private WordFrequenciesModel model;
     private WordFrequenciesView view;
 
-    public WordFrequencyController(WordFrenquenciesModel model,WordFrequenciesView view){
+    public WordFrequencyController(WordFrequenciesModel model, WordFrequenciesView view){
         this.model = model;
         this.view = view;
         this.view.render();
