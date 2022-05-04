@@ -1,16 +1,16 @@
 import java.util.*;
 
 public class WordFrequenciesView{
-    private WordFrenquenciesModel model;
+    private WordFrequenciesModel model;
 
-    public WordFrequenciesView(WordFrenquenciesModel model){
+    public WordFrequenciesView(WordFrequenciesModel model){
         this.model = model;
     }
 
     public void render(){
-        HashMap<String,Integer> freqs = model.getFreqs();
+        HashMap<String,Integer> contadorFrequencias = model.getFreqs();
 
-        List<Map.Entry<String, Integer>> list = new ArrayList<>(freqs.entrySet());
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(contadorFrequencias.entrySet());
         list.sort(Map.Entry.comparingByValue());
         Collections.reverse(list);
 
@@ -20,8 +20,4 @@ public class WordFrequenciesView{
         }
 
     }
-
-
-
-
 }
